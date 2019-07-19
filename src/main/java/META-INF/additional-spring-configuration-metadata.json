@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "wiki.server.baseurl",
+  "type": "java.lang.String",
+  "description": "A description for 'wiki.server.baseurl'"
+}]}
