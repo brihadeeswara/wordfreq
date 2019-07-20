@@ -5,8 +5,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.wd.wordfreq.bean.WordFreqRequest;
 
 /**
@@ -21,8 +19,7 @@ public abstract class AbstractWordFrequencyCalculator implements WordFreqCalc {
 	/**
 	 * reference to word store
 	 */
-	@Autowired
-	protected MostFreqWordsStore wordStore;
+	protected MostFreqWordsStore wordStore = new MostFreqWordsStore();
 
 	/**
 	 * Returns map which contains Top N words by their frequency in passed text
@@ -41,7 +38,7 @@ public abstract class AbstractWordFrequencyCalculator implements WordFreqCalc {
 		// map in second phase and return top N words. I have picked sorting one
 		// as to me it is better to store only N element in Map
 		List<String> sortedList = wordStream.sorted().collect(Collectors.toList());
-		if (sortedList.size() > 0) {
+		if (!sortedList.isEmpty()) {
 			String prevWord = sortedList.get(0);
 			int count = 0;
 			for (String word : sortedList) {

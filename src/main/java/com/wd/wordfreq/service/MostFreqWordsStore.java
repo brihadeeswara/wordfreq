@@ -7,17 +7,12 @@ import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
 import lombok.Setter;
 /**
  * Stores most frequent words and their count
  * @author RakeshKShukla
  *
  */
-@Component
-@Scope("prototype")
 public class MostFreqWordsStore 
 {
 	@Setter

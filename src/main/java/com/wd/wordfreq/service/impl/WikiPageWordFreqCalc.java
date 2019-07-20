@@ -31,14 +31,22 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class WikiPageWordFreqCalc extends AbstractWordFrequencyCalculator 
 {
-	@Value("${wiki.server.baseurl:https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json}")
 	private String wikiServerUrl;
-	@Value("${extract.json.path:query.pages.pageid.extract}")
 	private String jsonPathForExtract;
-	@Value("${title.json.path:query.pages.pageid.title}")
 	private String jsonPathForTitle;
-	@Autowired
 	private WikiRestTemplate wikiRestTemplate;
+	
+	 public WikiPageWordFreqCalc(
+	            @Value("${wiki.server.baseurl:https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json}") String wikiServerUrl,
+	            @Value("${extract.json.path:query.pages.pageid.extract}") String jsonPathForExtract,
+	            @Value("${title.json.path:query.pages.pageid.title}") String jsonPathForTitle,
+	            WikiRestTemplate wikiRestTemplate) {
+	        this.wikiServerUrl = wikiServerUrl;
+	        this.jsonPathForExtract = jsonPathForExtract;
+	        this.jsonPathForTitle = jsonPathForTitle;
+	        this.wikiRestTemplate = wikiRestTemplate;
+	    }
+	 
 	@Override
 	public WikiPageWordFreqResponse getMostFrequentWords(WordFreqRequest request) 
 	{

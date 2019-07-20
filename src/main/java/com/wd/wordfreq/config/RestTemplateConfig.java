@@ -75,7 +75,7 @@ public class RestTemplateConfig {
 				connectionManager.closeIdleConnections(idleTimeOutInMillis, TimeUnit.SECONDS);
 				log.debug("cleaned up expired and idle connections");
 				try {
-					Thread.sleep(idleTimeOutInMillis - 1000);
+					Thread.sleep(idleTimeOutInMillis - 1000l);
 				} catch (InterruptedException e) {
 					log.error("Thread got interrupted while sleeping,exiting loop");
 					continue;
