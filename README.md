@@ -47,10 +47,10 @@ java -jar wordfrequency-service-0.0.1.jar
 pageid- an integer value defaults to 21721040
 ```
 ```
-regex- java regex to match words to pick, default is "^[a-z]{4,}$"
+regex- java regex to match words to pick, must be in double quotes when passed as command line arg, default is "^[a-z]{4,}$"
 ```
 ```
-maxwords- number of most frequent numbers to report , default is 5
+maxwords- number of most frequent numbers to report must be greater than 0 , default is 5
 ```
 - command with all commanmd line args
 ```
