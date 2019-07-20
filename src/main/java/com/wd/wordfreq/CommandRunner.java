@@ -53,7 +53,7 @@ public class CommandRunner {
 						int topCountArg= Integer.parseInt(arg.substring(COMMAND_LINE_ARGS_MAXTOPWORDS.length(), arg.length()));
 						if( topCountArg <= 0 )
 						{
-				                   System.err.println("Issue with command line args" + Arrays.toString(args));
+				                   System.err.println("Usage:Issue with command line args" + Arrays.toString(args));
 						   System.exit(1);
 						}
 						topCount = Optional.of(topCountArg);
@@ -64,13 +64,13 @@ public class CommandRunner {
 				System.out.println(svc.getMostFrequentWords(WikiPageWordFreqRequest.builder()
 						.maxTopWords(topCount.orElse(DEFAULT_MAXTOPWORDS)).wordRegex(wordRegex).pageId(pageid.orElse(DEFAULT_PAGEID)).build()));
 			} catch (IndexOutOfBoundsException | PatternSyntaxException|NumberFormatException ex) {
-				System.err.println("Issue with command line args" + Arrays.toString(args));
-				ex.printStackTrace();
-			        System.exit(1);
+				System.err.println("Usage:Issue with command line args" + Arrays.toString(args));
+				System.exit(1);
 			}
 			catch( WordFreqException ex)
 			{
 				System.err.println("Issue while calculating most frequent words:" + ex.getMessage());
+				ex.printStackTrace();
 				System.exit(2);
 			}
 		};
