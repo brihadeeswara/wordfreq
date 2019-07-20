@@ -3,6 +3,7 @@
 This repo has simple code written in Java ( using spring-boot ) which returns top N words from extract of Wiki page.
 
 
+
 ## Getting Started
 
 
@@ -40,6 +41,7 @@ cd target
 - run jar , this will return top 5 most repeated words , matching java regex "^[a-z]{4,}$" from wiki page#21721040
 ```
 java -jar wordfrequency-service-0.0.1.jar
+java -Xmx{value} -jar wordfrequency-service-0.0.1.jar [ tweak {value} according to page size ]
 ```
 
 - this service can take 3 command line args
@@ -50,7 +52,7 @@ pageid- an integer value defaults to 21721040
 regex- java regex to match words to pick, must be in double quotes when passed as command line arg, default is "^[a-z]{4,}$"
 ```
 ```
-maxwords- number of most frequent numbers to report must be greater than 0 , default is 5
+maxwords- number of most frequent numbers to report must be greater than 0 , default is 5, if there are less words in top list it will show only them , for example if top 12 words are required but only 10 top words found then it will show only Top 10 words
 ```
 - command with all commanmd line args
 ```
