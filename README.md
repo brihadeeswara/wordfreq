@@ -1,6 +1,6 @@
 # wordfreq-svc
 
-This repo has simple code written in Java8 ( using spring-boot ) which returns top N words from extract of Wiki page.
+This repo has simple code written in Java ( using spring-boot ) which returns top N words from extract of Wiki page.
 
 
 ## Getting Started
