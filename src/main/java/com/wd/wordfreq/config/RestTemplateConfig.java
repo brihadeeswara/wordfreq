@@ -64,7 +64,7 @@ public class RestTemplateConfig {
 		connectionManager.setMaxTotal(maxConnInPool);
 		connectionManager.setDefaultMaxPerRoute(maxConnInPool);
 		ExecutorService closeIdleConnExecutor = Executors.newSingleThreadExecutor(runnable -> {
-			Thread removeIdleConnThread = new Thread();
+			Thread removeIdleConnThread = new Thread(runnable);
 			removeIdleConnThread.setDaemon(true);
 			return removeIdleConnThread;
 		});
